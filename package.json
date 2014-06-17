@@ -1,21 +1,20 @@
 {
-  "name":         "react-talk",
-  "description":  "React Talk",
-  "version":      "0.0.1",
+  "name": "react-talk",
+  "description": "React Talk",
+  "version": "0.0.1",
   "engines": {
     "node": "0.10.x",
-    "npm":  "1.4.x"
+    "npm": "1.4.x"
   },
   "repository": {
     "type": "git",
-    "url":  ""
+    "url": ""
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp":         "^3.6.2",
-    "gulp-notify":  "^1.2.5",
-    "gulp-sass":    "0.7.1"
+    "coffee-script": "^1.7.1",
+    "gulp": "^3.6.2",
+    "gulp-notify": "^1.2.5",
+    "gulp-sass": "0.7.1"
   }
 }
