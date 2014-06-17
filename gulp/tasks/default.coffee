@@ -1,2 +1,3 @@
 gulp = require("gulp")
-gulp.task("default", ["sass"])
+
+gulp.task('default', ['build', 'watch', 'serve']);
