@@ -3,7 +3,7 @@
   [
       {
       "path": ".",
-      "folder_exclude_patterns": ["node_modules", ".sass-cache", "build"],
+      "folder_exclude_patterns": ["node_modules", ".sass-cache"],
       "file_exclude_patterns": ["*.pdf", "*.jpg", "*.png", "*.sublime-workspace"]
       }
   ]

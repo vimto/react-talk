@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/libs/react-0.10.0/build/react.js"></script>
+    <script src="/libs/react-0.10.0/build/JSXTransformer.js"></script>
+    <title>Hello React</title>
+  </head>
+  <body>
+    <div id="component-container"></div>
+
+    <script type="text/jsx">
+
+      /** @jsx React.DOM */
+      React.renderComponent(
+        <h1>Hello, React!</h1>,
+        document.getElementById('component-container')
+      );
+
+    </script>
+
+  </body>
+</html>

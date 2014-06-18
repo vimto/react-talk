@@ -10,3 +10,4 @@ gulp.task "watch", ->
   gulp.watch("src/sass/**", ["sass"])
   gulp.watch(['build/**']).on('change', reload);
   gulp.watch("app/**/*.html").on("change", reload)
+  gulp.watch("app/**/*.jsx", ["react"])
