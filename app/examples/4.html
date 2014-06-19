@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Re-rendering componets</title>
+    <title>Properties and re-rendering</title>
 
     <!-- The main react library -->
     <script src="/libs/react-0.10.0/build/react.js"></script>
@@ -31,6 +31,7 @@
         // http://facebook.github.io/react/docs/component-specs.html
         componentDidMount: function() {
           // We can access properties that are passed into the component using this.props
+          // Properties should be considered immutable - don't update them!
           console.log("componentDidMount", this.props, arguments);
         },
 

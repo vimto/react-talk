@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello React</title>
+    <title>State and events</title>
+
+    <!-- The main react library -->
     <script src="/libs/react-0.10.0/build/react.js"></script>
+    <!-- The JSX transformer -->
     <script src="/libs/react-0.10.0/build/JSXTransformer.js"></script>
-    <script type="text/jsx" src="2.js"></script>
+
   </head>
+
   <body>
     <div id="example"></div>
 
     <script type="text/jsx">
-
       /** @jsx React.DOM */
+
       var LikeButton = React.createClass({
+
+        // We use getInitialState to set the state of a propery
         getInitialState: function() {
           return { liked: false };
         },
+
+        // Event handlers are autmatically bound to 'this' component
         handleClick: function(event) {
+          // React's synthetic events are passed around, but you can grab a reference to the original
           console.log(event);
+
+          // setState merges the passed in state with the current state
+          // By default, any time state is set, a component is updated
           this.setState({liked: !this.state.liked});
         },
+
+        // We can customise whether a component should re-render
+        // We can see the state changing in the React console, but no re-rendering
+        shouldComponentUpdate: function(event) {
+          return false;
+        },
+
         render: function() {
+          // It's better to derived properties than store them as state
           var text = this.state.liked ? 'like' : 'unlike';
           return (
+            // Event handers are wired up much like HTML.
+            // React adds top level listeners to the real dom for efficiency
             <button onClick={this.handleClick}>
               You {text} this. Click to toggle.
             </button>
