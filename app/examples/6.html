@@ -39,18 +39,18 @@
 
         // A helper function to pick a random quote.
         // Quotes are simply loaded from another file
-        whatDoesKanyeSay: function() {
+        randomQuote: function() {
           return quotes[Math.floor(Math.random() * quotes.length)];
         },
 
         // Pick an initial quote
         getInitialState: function() {
-          return { kanyeSays: this.whatDoesKanyeSay() };
+          return { kanyeSays: this.randomQuote() };
         },
 
         // Define a callback to assing a new quote to the state using a helper
-        updateQuote: function() {
-          this.setState( { kanyeSays: this.whatDoesKanyeSay() });
+        whatDoesKanyeSay: function() {
+          this.setState( { kanyeSays: this.randomQuote() });
         },
 
         render: function() {
@@ -58,12 +58,12 @@
             <div>
               { /* Methods can be passed down as properties to */ }
               { /* This lets us keep state and mutator methods together */ }
-              <KanyesButton updateQuote={ this.updateQuote } />
+              <KanyesButton whatDoesKanyeSay={ this.whatDoesKanyeSay } />
 
               { /* Just a regular property */ }
               <KanyesMug username={ this.props.username } />
 
-              { /* The state of an owner component can be passed down as the properties of a child */ }
+              { /* The state of an owner component can be passed down as the properties */ }
               { /* So we can keep most components stateless  */ }
               <KanyesQuote quote={ this.state.kanyeSays } />
 
@@ -77,7 +77,7 @@
         // passed in as a property
         render: function() {
           return (
-            <button onClick={ this.props.updateQuote }>Kanye Says</button>
+            <button onClick={ this.props.whatDoesKanyeSay }>Kanye Says</button>
           );
         }
       });
