@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var Menu = React.createClass({
+var Elements = React.createClass({
   render: function() {
     return (
       <ol class="elements">
