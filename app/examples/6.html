@@ -73,6 +73,11 @@
       });
 
       var KanyesButton = React.createClass({
+        // We can validate incoming properties to make component interfaces more well defined
+        // Can also set default properties, and defined mixins
+        propTypes: {
+          whatDoesKanyeSay: React.PropTypes.func
+        },
         // Wire the event handler to the callback in the parent component,
         // passed in as a property
         render: function() {
@@ -83,6 +88,9 @@
       });
 
       var KanyesMug = React.createClass({
+        propTypes: {
+          username: React.PropTypes.string
+        },
         // Simply use the property to grab a profile pic
         render: function() {
           return (
@@ -92,6 +100,10 @@
       });
 
       var KanyesQuote = React.createClass({
+        // To makes
+        propTypes: {
+          quote: React.PropTypes.string
+        },
         // Display the quote
         render: function() {
           return (
