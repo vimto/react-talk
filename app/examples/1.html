@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <script src="/libs/react-0.10.0/build/react.js"></script>
-    <script src="/libs/react-0.10.0/build/JSXTransformer.js"></script>
     <title>Hello React</title>
+
+    <!-- The main react library -->
+    <script src="/libs/react-0.10.0/build/react.js"></script>
+    <!-- The JSX transformer -->
+    <script src="/libs/react-0.10.0/build/JSXTransformer.js"></script>
   </head>
+
   <body>
+    <!-- We'll inject our component into this container  -->
     <div id="component-container"></div>
 
     <script type="text/jsx">
 
       /** @jsx React.DOM */
+      // This above declaration tells the JSX transformer know to transform this snippet.
+      // It needs to be the first line in the file
+
       React.renderComponent(
+        // Yes, it's HTML embedded in JavaScript. Weird, huh?
         <h1>Hello, React!</h1>,
         document.getElementById('component-container')
       );
 
     </script>
-
   </body>
 </html>

@@ -1,9 +1,11 @@
 /** @jsx React.DOM */
+// The declaration actually defines a namespace for the referenced components
 
 var Elements = React.createClass({displayName: 'Elements',
   render: function() {
     return (
-      React.DOM.ol( {class:"element-list", id:"elements"}, 
+      // We can include attributes, that are passed to the components
+      React.DOM.ol( {id:"element", class:"element-list"},
         React.DOM.li(null, "Hydrogen"),
         React.DOM.li(null, "Lithium")
       )

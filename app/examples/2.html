@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
+
   <head>
+    <title>Loading from another file.</title>
+
+    <!-- The main react library -->
     <script src="/libs/react-0.10.0/build/react.js"></script>
+    <!-- The JSX transformer -->
     <script src="/libs/react-0.10.0/build/JSXTransformer.js"></script>
+    <!-- An React component defined in an external file -->
     <script type="text/jsx" src="2.js"></script>
-    <title>Hello React</title>
   </head>
+
   <body>
+    <!-- We'll inject our component into this container  -->
     <div id="component-container"></div>
   </body>
+
 </html>
