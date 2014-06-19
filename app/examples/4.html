@@ -15,9 +15,10 @@
         render: function() {
           return (
             <p>
-              {this.props.greeting} <input type="text" placeholder="Your name here" />!
+              { this.props.greeting }
+              <input type="text" placeholder="Your name here" />!
               <br />
-              It is {this.props.date.toTimeString()}
+              It is { this.props.date.toTimeString() }
             </p>
           );
         }
@@ -25,10 +26,10 @@
 
       setInterval(function() {
         React.renderComponent(
-          <HelloWorld greeting="Yo" date={new Date()} />,
+          <HelloWorld greeting="Hello" date={ new Date() } />,
           document.getElementById('example')
         );
-      }, 500);
+      }, 1000);
 
     </script>
 

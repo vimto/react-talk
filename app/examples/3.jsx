@@ -3,10 +3,9 @@
 var Elements = React.createClass({
   render: function() {
     return (
-      <ol class="elements">
+      <ol class="element-list">
         <li>Hydrogen</li>
         <li>Lithium</li>
-        <li>Beryllium</li>
       </ol>
     );
   }
