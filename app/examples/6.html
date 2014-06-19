@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello React</title>
+    <title>Kanye Says</title>
+
+    <!-- The main react library -->
     <script src="/libs/react-0.10.0/build/react.js"></script>
+    <!-- The JSX transformer -->
     <script src="/libs/react-0.10.0/build/JSXTransformer.js"></script>
-    <script type="text/jsx" src="2.js"></script>
+    <script src="quotes.js"></script>
+
+    <style>
+      button {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 10px;
+      }
+      img {
+        width: 80px;
+        float: left;
+        margin-right: 20px;
+      }
+      h1 {
+        display: inline;
+        font-size: 20px;
+        vertical-align: top;
+        font-weight: normal;
+      }
+    </style>
+
   </head>
   <body>
     <div id="example"></div>
@@ -12,18 +35,55 @@
     <script type="text/jsx">
 
       /** @jsx React.DOM */
-      var Avatar = React.createClass({
+      var Kanye = React.createClass({
+
+        // A helper function to pick a random quote.
+        // Quotes are simply loaded from another file
+        whatDoesKanyeSay: function() {
+          return quotes[Math.floor(Math.random() * quotes.length)];
+        },
+
+        // Pick an initial quote
+        getInitialState: function() {
+          return { kanyeSays: this.whatDoesKanyeSay() };
+        },
+
+        // Define a callback to assing a new quote to the state using a helper
+        updateQuote: function() {
+          this.setState( { kanyeSays: this.whatDoesKanyeSay() });
+        },
+
         render: function() {
           return (
             <div>
-              <ProfilePic username={this.props.username} />
-              <ProfileLink username={this.props.username} />
+              { /* Methods can be passed down as properties to */ }
+              { /* This lets us keep state and mutator methods together */ }
+              <KanyesButton updateQuote={ this.updateQuote } />
+
+              { /* Just a regular property */ }
+              <KanyesMug username={ this.props.username } />
+
+              { /* The state of an owner component can be passed down as the properties of a child */ }
+              { /* So we can keep most components stateless  */ }
+              <KanyesQuote quote={ this.state.kanyeSays } />
+
             </div>
           );
         }
       });
 
-      var ProfilePic = React.createClass({
+      var KanyesButton = React.createClass({
+        // Wire the event handler to the callback in the parent component,
+        // passed in as a property
+        render: function() {
+          return (
+            <button onClick={ this.props.updateQuote }>Kanye Says</button>
+          );
+        }
+      });
+
+      var KanyesMug = React.createClass({
+        // Simply use the property to grab a profile pic
         render: function() {
           return (
             <img src={'http://graph.facebook.com/' + this.props.username + '/picture'} />
@@ -31,18 +91,19 @@
         }
       });
 
-      var ProfileLink = React.createClass({
+      var KanyesQuote = React.createClass({
+        // Display the quote
         render: function() {
           return (
-            <a href={'http://www.facebook.com/' + this.props.username}>
-              {this.props.username}
-            </a>
+            <h1>{ this.props.quote }</h1>
           );
         }
       });
 
+
+      // Render the composite component
       React.renderComponent(
-        <Avatar username="vimal.jobanputra.5" />,
+        <Kanye username="TheOfficialKanyeWest" />,
         document.getElementById('example')
       );
 
