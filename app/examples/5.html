@@ -19,6 +19,11 @@
       var LikeButton = React.createClass({
 
         // We use getInitialState to set the state of a propery
+        // State best practices:
+        // - Generally, State should contain data that a component's event handlers may change to trigger a UI update.
+        // - Keep as many components stateless as possible, with common ancestors manipulating state and passing it down
+        // - Think about the minimal possible representation of its state
+        // - Don't store computed data, other components, or data copied from properties
         getInitialState: function() {
           return { liked: false };
         },
