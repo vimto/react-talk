@@ -5,6 +5,8 @@ var Elements = React.createClass({
   render: function() {
     return (
       // We can include attributes, that are passed to the components
+      // The signature of a component is Component(attributes, children...)
+      // It's a variadic signature, and the last n elements are treated as the children
       <ol id="element" class="element-list">
         <li>Hydrogen</li>
         <li>Lithium</li>
