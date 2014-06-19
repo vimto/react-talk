@@ -1,36 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello React</title>
+    <title>Re-rendering componets</title>
+
+    <!-- The main react library -->
     <script src="/libs/react-0.10.0/build/react.js"></script>
+    <!-- The JSX transformer -->
     <script src="/libs/react-0.10.0/build/JSXTransformer.js"></script>
-    <script type="text/jsx" src="2.js"></script>
+
   </head>
+
   <body>
     <div id="example"></div>
 
     <script type="text/jsx">
-
       /** @jsx React.DOM */
+
+      // Re-render the component every second, with new property
+      setInterval(function() {
+        React.renderComponent(
+          // Properties are passed in as attributes
+          <HelloWorld greeting="Hello" date={ new Date() } />,
+          document.getElementById('example')
+        );
+      }, 1000);
+
       var HelloWorld = React.createClass({
+
+        // One of React's Component Lifecycle events.
+        // http://facebook.github.io/react/docs/component-specs.html
+        componentDidMount: function() {
+          // We can access properties that are passed into the component using this.props
+          console.log("componentDidMount", this.props, arguments);
+        },
+
+        // We can hook into properties being updated
+        componentWillUpdate: function(nextProps, nextState) {
+          console.log("componentWillUpdate", this.props.date, nextProps.date);
+        },
+
         render: function() {
           return (
             <p>
+              { /* We can also insert JavaScript expressions using curly brances. That's how to add comments too */ }
               { this.props.greeting }
+
+              { /* React knows not to update this input box when re-rendering the component */ }
               <input type="text" placeholder="Your name here" />!
               <br />
+
+              { /* Expressions can contain any JavaScript */ }
               It is { this.props.date.toTimeString() }
             </p>
           );
         }
       });
-
-      setInterval(function() {
-        React.renderComponent(
-          <HelloWorld greeting="Hello" date={ new Date() } />,
-          document.getElementById('example')
-        );
-      }, 1000);
 
     </script>
 
