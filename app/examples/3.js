@@ -9,7 +9,8 @@ var Elements = React.createClass({displayName: 'Elements',
       // It's a variadic signature, and the last n elements are treated as the children
       React.DOM.ol( {id:"element", class:"element-list"}, 
         React.DOM.li(null, "Hydrogen"),
-        React.DOM.li(null, "Lithium")
+        React.DOM.li(null, "Lithium"),
+        React.DOM.li(null, "Beryllium")
       )
     );
   }

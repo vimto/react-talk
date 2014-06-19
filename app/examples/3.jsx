@@ -10,6 +10,7 @@ var Elements = React.createClass({
       <ol id="element" class="element-list">
         <li>Hydrogen</li>
         <li>Lithium</li>
+        <li>Beryllium</li>
       </ol>
     );
   }
